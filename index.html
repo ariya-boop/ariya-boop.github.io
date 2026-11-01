@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ariya-boop | Cybersecurity & AI Portfolio</title>
+  <meta name="description" content="Portfolio of production-ready projects in Cybersecurity, Threat Detection, DevSecOps, and Adversarial Machine Learning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0d14;
+      --bg-secondary: #101622;
+      --bg-card: #151d2d;
+      --border-color: #232f46;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-purple: #8b5cf6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    header {
+      border-bottom: 1px solid var(--border-color);
+      background-color: rgba(10, 13, 20, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 9999px;
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+      color: #ffffff;
+      border: 1px solid transparent;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--border-color);
+      transform: translateY(-1px);
+    }
+
+    /* Skills Grid */
+    .skills-section {
+      padding: 30px 0 60px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 60px 0 80px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      margin-bottom: 16px;
+    }
+
+    .project-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-sec { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-ai { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+    .badge-devsec { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-soc { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-summary {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    .metrics-box {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .metrics-title {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .metrics-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .metrics-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .metrics-list li::before {
+      content: "•";
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-links a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-badge"></span>
+        ariya-boop
+      </a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="https://github.com/ariya-boop" target="_blank" rel="noopener">GitHub Profile</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">CYBERSECURITY & APPLIED AI PORTFOLIO</div>
+      <h1>Defensive Engineering & AI Security</h1>
+      <p>A portfolio of production-grade systems in application security, automated threat detection, DevSecOps pipelines, and adversarial machine learning robustness.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://github.com/ariya-boop" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          github.com/ariya-boop
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Overview -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Application Security</h3>
+          <div class="skill-tags">
+            <span class="tag">STRIDE Threat Modeling</span>
+            <span class="tag">IDOR Defense</span>
+            <span class="tag">Parameterized SQL</span>
+            <span class="tag">scrypt Hashing</span>
+            <span class="tag">Anti-Repudiation</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Security Operations & SOC</h3>
+          <div class="skill-tags">
+            <span class="tag">SSH Log Analysis</span>
+            <span class="tag">MITRE ATT&CK T1110</span>
+            <span class="tag">Account Takeover</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">GeoIP Enrichment</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Adversarial ML & NLP</h3>
+          <div class="skill-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">FGSM Attack</span>
+            <span class="tag">Iterative PGD</span>
+            <span class="tag">Gradient Masking</span>
+            <span class="tag">TF-IDF Vectorization</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>DevSecOps & Infrastructure</h3>
+          <div class="skill-tags">
+            <span class="tag">GitHub Actions CI</span>
+            <span class="tag">Bandit SAST</span>
+            <span class="tag">Pip-Audit SCA</span>
+            <span class="tag">Non-Root Docker</span>
+            <span class="tag">Python 3.11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-desc">Each repository represents an independent, fully tested implementation with empirical benchmarks and security documentation.</p>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Secure Notes API -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-badge badge-devsec">Software & Security</span>
+            <h3 class="project-title">Secure Notes REST API</h3>
+            <p class="project-summary">Hardened Flask REST service built with defense-in-depth from day one: parameterized SQL queries, IDOR-resistant CRUD, salted scrypt authentication, tamper-evident audit logging, and automated CI security scanning.</p>
+          </div>
+          <div class="metrics-box">
+            <div class="metrics-title">Security Controls & Verification</div>
+            <ul class="metrics-list">
+              <li><strong>STRIDE Threat Model:</strong> Documented mitigations with zero open critical gaps.</li>
+              <li><strong>IDOR Protection:</strong> Query-level tenant scoping across <code>GET</code>, <code>PUT</code>, and <code>DELETE</code>.</li>
+              <li><strong>DevSecOps Pipeline:</strong> 9 automated pytest cases, Bandit SAST (0 flaws), Pip-Audit SCA (0 CVEs).</li>
+              <li><strong>Hardened Container:</strong> Non-root execution user (<code>appuser</code>, UID 10001).</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="tag">Python / Flask / Docker</span>
+            <div class="project-links">
+              <a href="https://github.com/ariya-boop/secure-notes-api" target="_blank" rel="noopener">
+                View Repository &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Auth Log Analyzer -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-badge badge-soc">Security Operations</span>
+            <h3 class="project-title">Linux Auth Log Threat Analyzer</h3>
+            <p class="project-summary">Zero-dependency security tool that scans Linux <code>auth.log</code> files using an O(1) sliding time-window to detect automated SSH brute-force campaigns, password spraying, and critical account compromises.</p>
+          </div>
+          <div class="metrics-box">
+            <div class="metrics-title">Threat Detection & SOC Response</div>
+            <ul class="metrics-list">
+              <li><strong>Account Takeover Detection:</strong> Flags rapid failures preceding successful logons.</li>
+              <li><strong>MITRE ATT&CK Mapping:</strong> T1110.001 (Password Guessing) and T1078 (Valid Accounts).</li>
+              <li><strong>Sensitivity Matrix:</strong> Grid-search evaluated across 24h simulated traffic (0 false alarms).</li>
+              <li><strong>SOC Incident Report:</strong> Authored formal response report (INC-2026-1031).</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="tag">Python / Threat Hunting / SOC</span>
+            <div class="project-links">
+              <a href="https://github.com/ariya-boop/auth-log-analyzer" target="_blank" rel="noopener">
+                View Repository &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Phishing Detector -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-badge badge-sec">Applied AI & Security</span>
+            <h3 class="project-title">Phishing Email Detector</h3>
+            <p class="project-summary">Explainable NLP classifier combining sublinear TF-IDF n-grams with a custom <code>URLFeatureExtractor</code> to detect malicious communications, evaluate top discriminative tokens, and diagnose forensic failure cases.</p>
+          </div>
+          <div class="metrics-box">
+            <div class="metrics-title">Empirical Benchmark Numbers</div>
+            <ul class="metrics-list">
+              <li><strong>Dataset:</strong> 2,995 real emails from the Apache SpamAssassin public corpus.</li>
+              <li><strong>Performance:</strong> 98.93% test accuracy, 97.54% precision, 96.75% F1-score.</li>
+              <li><strong>Ultra-Low Latency:</strong> &lt; 0.2 ms inference per message on CPU (&lt; 10 MB memory).</li>
+              <li><strong>Forensic Studies:</strong> Detailed root-cause analysis on 3 misclassified emails.</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="tag">Scikit-Learn / Feature Engineering / NLP</span>
+            <div class="project-links">
+              <a href="https://github.com/ariya-boop/phishing-detector" target="_blank" rel="noopener">
+                View Repository &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Adversarial ML Lab -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-badge badge-ai">AI & Offensive Security</span>
+            <h3 class="project-title">Adversarial Machine Learning Lab</h3>
+            <p class="project-summary">Deep learning security lab investigating neural network fragility under L-infinity perturbations, contrasting single-step FGSM vs. multi-step PGD attacks, and exposing the phenomenon of gradient masking.</p>
+          </div>
+          <div class="metrics-box">
+            <div class="metrics-title">Experimental Robustness Metrics</div>
+            <ul class="metrics-list">
+              <li><strong>Iterative PGD Attack:</strong> 7-step PGD with random restarts and epsilon-ball projection.</li>
+              <li><strong>Gradient Masking Exposed:</strong> FGSM defense (88.75% at &epsilon;=0.2) collapsed to 20.47% under PGD.</li>
+              <li><strong>Robustness Tax:</strong> 1.25% clean accuracy trade-off (97.66% clean accuracy).</li>
+              <li><strong>Cybersecurity Mapping:</strong> Mapped to evasion in malware PE headers and LLM jailbreaks.</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="tag">PyTorch / CNN / ATLAS AML.T0015</span>
+            <div class="project-links">
+              <a href="https://github.com/ariya-boop/adversarial-ml-lab" target="_blank" rel="noopener">
+                View Repository &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ariya-boop &bull; Built with security-by-design &bull; <a href="https://github.com/ariya-boop" target="_blank" rel="noopener">View on GitHub</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
