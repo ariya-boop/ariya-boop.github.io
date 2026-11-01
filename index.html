@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ryleen Ariyakutty | Software, AI & Security Engineer</title>
-<meta name="description" content="Portfolio of Ryleen Ariyakutty: BS Software Engineering, MS AI Engineering, Cybersecurity Certificate. Systems in secure software, threat detection, and adversarial machine learning.">
-<meta property="og:title" content="Ryleen Ariyakutty | Software, AI & Security Engineer">
-<meta property="og:description" content="Secure software, threat detection, and applied adversarial machine learning projects.">
+<title>Ryleen Ariyakutty &bull; Software &bull; AI &bull; Defensive Security</title>
+<meta name="description" content="Portfolio of Ryleen Ariyakutty — Software Engineer, Adversarial ML Researcher, and Defensive Cybersecurity Developer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#EEF1F6; --surface:#FFFFFF; --ink:#14213D; --muted:#4D5B78; --line:#CBD3E3;
-  --sw:#2F4BD8; --ai:#0E8F7E; --sec:#C2410C;
+  --sw:#2F4BD8; --ai:#0E8F7E; --sec:#C2410C; --app:#0284C7; --game:#7C3AED;
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",monospace;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0F1626;--surface:#17203A;--ink:#E8ECF6;--muted:#A3AFC9;--line:#2B3757;--sw:#8DA2FF;--ai:#4FD1BC;--sec:#FF9A62}
+  :root{
+    --bg:#0F1626;--surface:#17203A;--ink:#E8ECF6;--muted:#A3AFC9;--line:#2B3757;
+    --sw:#8DA2FF;--ai:#4FD1BC;--sec:#FF9A62;--app:#38BDF8;--game:#A78BFA;
+  }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -27,7 +28,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(
 a{color:inherit}
 code{font-family:var(--mono);font-size:0.9em;background:rgba(128,128,128,0.12);padding:0.15em 0.35em;border-radius:4px}
 :focus-visible{outline:3px solid var(--sw);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
 header.nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
 header.nav strong{font:700 1.2rem var(--display);letter-spacing:-.01em}
 header.nav nav a{margin-left:1.25rem;text-decoration:none;color:var(--muted);font-weight:500;transition:color .15s}
@@ -35,16 +36,18 @@ header.nav nav a:hover{color:var(--ink);text-decoration:underline}
 
 /* Hero */
 .hero{padding:3.5rem 0 3rem}
-.hero h1{font:800 clamp(2.6rem,8vw,5.2rem)/1.02 var(--display);letter-spacing:-.03em;margin:0 0 1.25rem}
-.hero p.lead{max-width:44rem;font-size:1.2rem;color:var(--muted);margin:0 0 2rem}
-.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--surface)}
+.hero h1{font:800 clamp(2.5rem,7.5vw,4.8rem)/1.03 var(--display);letter-spacing:-.03em;margin:0 0 1.25rem}
+.hero p.lead{max-width:46rem;font-size:1.2rem;color:var(--muted);margin:0 0 2rem}
+.stack{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:0;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--surface)}
 .stack div{padding:1.1rem 1.25rem;border-left:2px solid var(--ink)}
 .stack div:first-child{border-left:0}
 .stack b{display:block;font:700 1.15rem var(--display)}
-.stack span{color:var(--muted);font-size:.95rem}
+.stack span{color:var(--muted);font-size:.92rem}
 .stack div:nth-child(1){border-top:8px solid var(--sw)}
-.stack div:nth-child(2){border-top:8px solid var(--ai)}
-.stack div:nth-child(3){border-top:8px solid var(--sec)}
+.stack div:nth-child(2){border-top:8px solid var(--app)}
+.stack div:nth-child(3){border-top:8px solid var(--ai)}
+.stack div:nth-child(4){border-top:8px solid var(--sec)}
+.stack div:nth-child(5){border-top:8px solid var(--game)}
 .cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:6px;font-weight:500;text-decoration:none;border:2px solid var(--ink);transition:transform .15s,box-shadow .15s}
 .btn.primary{background:var(--ink);color:var(--bg)}
@@ -60,7 +63,7 @@ h2{font:700 2.2rem/1.1 var(--display);letter-spacing:-.02em;margin:0 0 1.5rem}
 .filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
 .filters button{font:500 .95rem var(--body);padding:.45rem 1rem;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .15s}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.5rem}
 .card{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:6px;padding:1.5rem;display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease}
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
 .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
@@ -73,32 +76,39 @@ h2{font:700 2.2rem/1.1 var(--display);letter-spacing:-.02em;margin:0 0 1.5rem}
 .card .metrics li{margin-bottom:.2rem}
 .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 1.25rem;padding:0;list-style:none}
 .tags li{font-family:var(--mono);font-size:.78rem;padding:.15rem .55rem;border:1px solid var(--line);border-radius:4px;background:rgba(128,128,128,0.05)}
-.links{margin-top:auto;display:flex;gap:1.25rem;font-weight:600;font-size:.95rem}
+.links{margin-top:auto;display:flex;gap:1.25rem;font-weight:600;font-size:.95rem;flex-wrap:wrap}
 .links a{color:var(--sw);text-decoration:none;display:inline-flex;align-items:center;gap:.3rem}
+.links a.live-btn{color:var(--game);font-weight:700}
 .links a:hover{text-decoration:underline}
 .card[hidden]{display:none}
 
-/* Skills + education */
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.cols h3{font:700 1.15rem var(--display);margin:0 0 .8rem;padding-top:.6rem;border-top:6px solid var(--c)}
-.cols ul{margin:0;padding-left:1.2rem;color:var(--muted)}
-.cols li{margin-bottom:.4rem}
-.edu{list-style:none;padding:0;margin:0}
-.edu li{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.edu strong{font-size:1.05rem}
-.edu span{color:var(--muted)}
-footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line);color:var(--muted)}
-footer .big{font:700 clamp(1.6rem,4vw,2.4rem) var(--display);color:var(--ink);text-decoration:none;word-break:break-word;display:inline-block;margin:0.5rem 0 1rem}
-footer .big:hover{text-decoration:underline}
+/* Architecture Ecosystem */
+.arch-diagram{background:var(--surface);border:2px solid var(--ink);border-radius:8px;padding:2rem;margin-top:1rem}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1.5rem}
+.arch-box{border:1px solid var(--line);border-radius:6px;padding:1.25rem;background:var(--bg)}
+.arch-box h4{margin:0 0 .5rem;font-size:1.05rem;display:flex;align-items:center;gap:.5rem;font-family:var(--display)}
+.arch-box p{margin:0;font-size:.92rem;color:var(--muted)}
 
-@media (max-width:760px){
-  .stack,.cols,.about{grid-template-columns:1fr}
-  .stack div{border-left:0;border-top-width:8px}
-  .stack div+div{border-top:8px solid}
-  .stack div:nth-child(2){border-top-color:var(--ai)}
-  .stack div:nth-child(3){border-top-color:var(--sec)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.cols div{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:6px;padding:1.5rem}
+.cols h3{margin:0 0 1rem;font:700 1.25rem var(--display)}
+.cols ul{margin:0;padding-left:1.25rem;color:var(--muted)}
+.cols li{margin-bottom:.5rem}
+
+.edu{list-style:none;padding:0;margin:0}
+.edu li{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line);gap:1rem;flex-wrap:wrap}
+.edu li span{color:var(--muted)}
+
+footer{padding:3.5rem 0 4rem;border-top:2px solid var(--ink);text-align:center}
+footer a.big{font:700 clamp(1.4rem,4vw,2.2rem) var(--display);color:var(--ink);text-decoration:none;display:inline-block;margin:1rem 0}
+footer a.big:hover{text-decoration:underline}
+footer p{color:var(--muted);margin:.5rem 0}
+
+@media(max-width:768px){
+  .about{grid-template-columns:1fr}
+  .stack{grid-template-columns:1fr}
+  .stack div{border-left:0;border-top:2px solid var(--ink)}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -106,37 +116,44 @@ footer .big:hover{text-decoration:underline}
 
 <header class="nav">
   <strong>Ryleen Ariyakutty</strong>
-  <nav aria-label="Main">
-    <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#ecosystem">Architecture</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
-<div class="hero">
-  <h1>I build software that learns and holds up under attack.</h1>
-  <p class="lead">I'm <strong>Ryleen Ariyakutty</strong>, a software engineer with a master's in AI engineering and a cybersecurity certificate. I design and ship systems that bridge machine learning, application security, and production backend infrastructure.</p>
-  <div class="stack" aria-label="Credentials">
-    <div><b>Build</b><span>BS Software Engineering, Western Governors University, 2026</span></div>
-    <div><b>Learn</b><span>MS AI Engineering, Western Governors University, 2027</span></div>
-    <div><b>Defend</b><span>Cybersecurity Certificate, Toronto Metropolitan University, 2026</span></div>
+<section class="hero">
+  <h1>Building software that learns, adapts, and holds up under attack.</h1>
+  <p class="lead">Software Engineer, Adversarial ML Researcher, and Defensive Security Builder. I engineer resilient backend APIs, client-side zero-knowledge applications, ML threat detectors, and interactive cybersecurity simulations.</p>
+  <div class="stack">
+    <div><b>Backend & DevSecOps</b><span>Python &bull; Flask &bull; STRIDE &bull; CI/CD</span></div>
+    <div><b>Client App Dev</b><span>Zero-Knowledge &bull; Web Crypto</span></div>
+    <div><b>Applied AI & ML</b><span>PyTorch &bull; scikit-learn &bull; NLP</span></div>
+    <div><b>Threat Hunting</b><span>MITRE ATT&CK &bull; Linux Forensics</span></div>
+    <div><b>Game Simulation</b><span>HTML5 Canvas &bull; Web Audio API</span></div>
   </div>
   <div class="cta">
-    <a class="btn primary" href="ResumeOct.PDF.pdf" target="_blank">Download résumé</a>
-    <a class="btn" href="https://github.com/ariya-boop" target="_blank" rel="noopener">GitHub (ariya-boop)</a>
-    <a class="btn" href="https://www.linkedin.com/in/ryleen-ariyakutty" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn primary" href="#projects">Explore Projects &rarr;</a>
+    <a class="btn" href="ResumeOct.PDF.pdf" download="Ryleen_Ariyakutty_Resume.pdf">Download Resume (PDF)</a>
+    <a class="btn" href="https://github.com/ariya-boop" target="_blank" rel="noopener">GitHub Profile</a>
   </div>
-</div>
+</section>
 
 <section id="about">
-  <h2>About</h2>
+  <h2>About & Engineering Philosophy</h2>
   <div class="about">
     <div>
-      <p>I design and build software end-to-end: from mathematical machine learning pipelines to hardened REST APIs, STRIDE threat models, and automated DevSecOps CI workflows.</p>
-      <p>I believe security and AI should be built together rather than patched on afterward. My work focuses on adversarial robustness, defensive threat detection, and least-privilege cloud systems.</p>
+      <p>I design and build software where security, robustness, and machine learning are designed together from day one rather than patched on after deployment.</p>
+      <p>My work spans full-stack secure engineering: from client-side Web Crypto API implementations to containerized backend APIs with query-level IDOR validation, automated CI/CD static security scanning, and empirical adversarial robustness benchmarking.</p>
     </div>
     <div>
-      <p><strong>Areas of focus:</strong> Adversarial machine learning (PGD/FGSM evasion attacks, gradient masking), defensive log analysis (MITRE ATT&CK), and secure API design (IDOR prevention, scrypt authentication, audit logging).</p>
-      <p><strong>Open to:</strong> Software Engineering, AI/ML Engineering, and Security-minded Backend roles.</p>
+      <p><strong>Areas of focus:</strong> Adversarial machine learning (PGD/FGSM evasion attacks, gradient masking), defensive log analysis (MITRE ATT&CK), zero-knowledge cryptography, and secure API design (IDOR prevention, scrypt authentication, audit logging).</p>
+      <p><strong>Open to:</strong> Software Engineering, Full-Stack App Development, AI/ML Engineering, and Security-minded Backend roles.</p>
     </div>
   </div>
 </section>
@@ -145,24 +162,70 @@ footer .big:hover{text-decoration:underline}
   <h2>Featured Projects</h2>
   <div class="filters" role="group" aria-label="Filter projects">
     <button aria-pressed="true" data-f="all">All</button>
-    <button aria-pressed="false" data-f="sw">Software & Security</button>
+    <button aria-pressed="false" data-f="sw">Backend & DevSecOps</button>
+    <button aria-pressed="false" data-f="app">App Development</button>
     <button aria-pressed="false" data-f="ai">AI & Machine Learning</button>
     <button aria-pressed="false" data-f="sec">Defensive Security</button>
+    <button aria-pressed="false" data-f="game">Gaming & Simulation</button>
   </div>
   <div class="grid" id="grid"></div>
 </section>
 
+<section id="ecosystem">
+  <h2>Unified Security & Engineering Architecture</h2>
+  <p style="color:var(--muted);max-width:44rem;margin-bottom:1.5rem">Every project in this portfolio forms part of a cohesive enterprise defense ecosystem — connecting client zero-knowledge cryptography, hardened backend services, automated AI detectors, forensic log analyzers, and gamified incident simulation.</p>
+  
+  <div class="arch-diagram">
+    <div class="arch-grid">
+      <div class="arch-box" style="border-top: 4px solid var(--app)">
+        <h4>🔒 Client Layer: CipherVault</h4>
+        <p>Zero-knowledge browser client encrypts data with 256-bit AES-GCM before transmission. PBKDF2 with 100,000 iterations ensures plaintext never leaves the user device.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid var(--sw)">
+        <h4>🛡️ Backend Layer: Secure Notes API</h4>
+        <p>Hardened Flask API enforcing query-level IDOR ownership scoping (<code>WHERE id=? AND user_id=?</code>), scrypt password hashing, and anti-repudiation audit logging.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid var(--sec)">
+        <h4>🔍 SecOps Layer: Auth Log Analyzer</h4>
+        <p>Sliding-window forensic monitor detecting brute-force clusters and account takeover (T1110 & T1078) to alert on infrastructure compromise attempts.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid var(--ai)">
+        <h4>🤖 Intelligence: Phishing Detector</h4>
+        <p>Real-time NLP and structural URL heuristic classifier achieving 98.93% accuracy on 2,995 emails to neutralize credential harvesting vectors.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid var(--ai)">
+        <h4>⚔️ AI Hardening: Adversarial ML Lab</h4>
+        <p>Evaluates neural network blindspots under FGSM and 7-step PGD attacks, exposing gradient masking and establishing provable defenses.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid var(--game)">
+        <h4>🎮 Simulation: CyberDefend Arcade</h4>
+        <p>Interactive 2D network packet defense simulator gamifying firewalls, rate limiters, AI inspection, and honeypots against active exploit waves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="skills">
-  <h2>Skills</h2>
+  <h2>Technical Skills & Tooling</h2>
   <div class="cols">
     <div style="--c:var(--sw)">
-      <h3>Software</h3>
+      <h3>Software & Backends</h3>
       <ul>
         <li>Python, Java, TypeScript, SQL</li>
-        <li>Flask, REST APIs, GraphQL</li>
+        <li>Flask, REST APIs, JSON APIs</li>
         <li>PostgreSQL, SQLite, Redis</li>
-        <li>Docker (non-root), Git, Linux</li>
+        <li>Docker (non-root UID 10001), Git, Linux</li>
         <li>Automated Testing (pytest, unit tests)</li>
+      </ul>
+    </div>
+    <div style="--c:var(--app)">
+      <h3>Client & App Development</h3>
+      <ul>
+        <li>JavaScript (ES6+), HTML5, CSS3</li>
+        <li>W3C Web Crypto API (AES-GCM, PBKDF2)</li>
+        <li>Client-Side State Management</li>
+        <li>Responsive Dual-Pane UI Design</li>
+        <li>Zero-Knowledge Privacy Architectures</li>
       </ul>
     </div>
     <div style="--c:var(--ai)">
@@ -172,7 +235,7 @@ footer .big:hover{text-decoration:underline}
         <li>NLP (TF-IDF, Tokenization, N-grams)</li>
         <li>Adversarial Robustness (FGSM, PGD)</li>
         <li>Feature Engineering & Pipelines</li>
-        <li>Model Evaluation (ROC-AUC, Precision/Recall/F1)</li>
+        <li>Model Evaluation (ROC-AUC, Precision, F1)</li>
       </ul>
     </div>
     <div style="--c:var(--sec)">
@@ -181,9 +244,19 @@ footer .big:hover{text-decoration:underline}
         <li>STRIDE Threat Modeling</li>
         <li>IDOR & Broken Authorization Defense</li>
         <li>MITRE ATT&CK (T1110, T1078)</li>
-        <li>Static Analysis (Bandit SAST)</li>
-        <li>Supply Chain Auditing (Pip-Audit SCA)</li>
+        <li>Static Analysis (Bandit SAST: 0 flaws)</li>
+        <li>Supply Chain Audits (Pip-Audit SCA: 0 CVEs)</li>
         <li>Tamper-Evident Audit Logging</li>
+      </ul>
+    </div>
+    <div style="--c:var(--game)">
+      <h3>Gaming & Simulation</h3>
+      <ul>
+        <li>HTML5 Canvas 2D Graphics Engine</li>
+        <li>Web Audio API Procedural Synthesis</li>
+        <li>Delta-Time Motion Physics</li>
+        <li>State Machine Game Architecture</li>
+        <li>Procedural Threat Wave Balancing</li>
       </ul>
     </div>
   </div>
@@ -200,9 +273,9 @@ footer .big:hover{text-decoration:underline}
 </main>
 
 <footer id="contact">
-  <p>Interested in collaborating or discussing opportunities?</p>
+  <p>Interested in collaborating or discussing software, AI, or cybersecurity opportunities?</p>
   <a class="big" href="mailto:ariyakuttyryleen@gmail.com">ariyakuttyryleen@gmail.com</a>
-  <p>© <span id="yr"></span> Ryleen Ariyakutty &bull; Hosted on GitHub Pages &bull; <a href="https://github.com/ariya-boop" target="_blank" rel="noopener">github.com/ariya-boop</a></p>
+  <p>&copy; <span id="yr"></span> Ryleen Ariyakutty &bull; Hosted on GitHub Pages &bull; <a href="https://github.com/ariya-boop" target="_blank" rel="noopener">github.com/ariya-boop</a></p>
 </footer>
 </div>
 
@@ -221,6 +294,20 @@ const projects = [
     tags: ["Flask", "SQLite", "pytest", "Docker", "DevSecOps", "STRIDE"],
     code: "https://github.com/ariya-boop/secure-notes-api",
     demo: ""
+  },
+  {
+    type: "app",
+    title: "CipherVault: Zero-Knowledge Client",
+    desc: "Client-side encrypted web application implementing zero-knowledge cryptography with the native W3C Web Crypto API. Derives 256-bit AES-GCM keys via PBKDF2 with 100,000 iterations directly in the browser so unencrypted data never touches the wire.",
+    metrics: [
+      "Zero-Knowledge Privacy: Master passphrase and unencrypted data never leave client memory",
+      "Cryptographic Rigor: Hardware-accelerated AES-256-GCM with fresh 12-byte IV per note",
+      "Key Derivation: PBKDF2 with SHA-256 and 100,000 rounds against brute-force attacks",
+      "Integrated Architecture: Interfaces directly with Secure Notes REST API backend"
+    ],
+    tags: ["JavaScript", "Web Crypto API", "AES-256-GCM", "Zero-Knowledge", "App Dev"],
+    code: "https://github.com/ariya-boop/secure-notes-client",
+    demo: "./secure-notes-client/"
   },
   {
     type: "sec",
@@ -263,19 +350,39 @@ const projects = [
     tags: ["PyTorch", "Adversarial ML", "PGD Attack", "FGSM", "ATLAS AML.T0015"],
     code: "https://github.com/ariya-boop/adversarial-ml-lab",
     demo: ""
+  },
+  {
+    type: "game",
+    title: "CyberDefend: Packet Wars",
+    desc: "Interactive 2D network security arcade game built in vanilla HTML5 Canvas and JavaScript with procedural Web Audio API sound synthesis. Players deploy firewalls, rate limiters, AI inspection nodes, and honeypots to neutralize escalating cyber attacks.",
+    metrics: [
+      "Custom Physics Loop: requestAnimationFrame state machine with delta-time motion and collision math",
+      "Threat Simulation: Simulates Port Scanners, Brute-Force Botnets, Phishing Lures, and Adversarial Exploits",
+      "Procedural Audio: 100% synthesized audio effects using native Web Audio API oscillators",
+      "High Performance: Zero external libraries, smooth 60 FPS in any modern desktop or mobile browser"
+    ],
+    tags: ["HTML5 Canvas", "JavaScript", "Web Audio API", "Game Dev", "Cybersecurity"],
+    code: "https://github.com/ariya-boop/cyber-defense-game",
+    demo: "./cyber-defense-game/"
   }
 ];
 
-const colors = {sw: "var(--sw)", ai: "var(--ai)", sec: "var(--sec)"};
+const colors = {sw: "var(--sw)", ai: "var(--ai)", sec: "var(--sec)", app: "var(--app)", game: "var(--game)"};
 const grid = document.getElementById("grid");
 
 projects.forEach(p => {
   const el = document.createElement("article");
   el.className = "card";
   el.dataset.type = p.type;
-  el.style.setProperty("--c", colors[p.type]);
+  el.style.setProperty("--c", colors[p.type] || "var(--sw)");
 
-  const typeLabels = {sw: "Software & Security", ai: "AI & Machine Learning", sec: "Defensive Security"};
+  const typeLabels = {
+    sw: "Backend & DevSecOps",
+    ai: "AI & Machine Learning",
+    sec: "Defensive Security",
+    app: "App Development",
+    game: "Gaming & Simulation"
+  };
   const typeLabel = typeLabels[p.type] || p.type;
 
   const metricsHtml = p.metrics ? `
@@ -287,7 +394,7 @@ projects.forEach(p => {
 
   const links = [
     p.code && `<a href="${p.code}" target="_blank" rel="noopener">View Repository &rarr;</a>`,
-    p.demo && `<a href="${p.demo}" target="_blank" rel="noopener">Live Demo &rarr;</a>`
+    p.demo && `<a class="live-btn" href="${p.demo}">Play / Launch App &rarr;</a>`
   ].filter(Boolean).join("");
 
   el.innerHTML = `
