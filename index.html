@@ -38,7 +38,7 @@ header.nav nav a:hover{color:var(--ink);text-decoration:underline}
 .hero{padding:3.5rem 0 3rem}
 .hero h1{font:800 clamp(2.5rem,7.5vw,4.8rem)/1.03 var(--display);letter-spacing:-.03em;margin:0 0 1.25rem}
 .hero p.lead{max-width:46rem;font-size:1.2rem;color:var(--muted);margin:0 0 2rem}
-.stack{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:0;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--surface)}
+.stack{display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--surface)}
 .stack div{padding:1.1rem 1.25rem;border-left:2px solid var(--ink)}
 .stack div:first-child{border-left:0}
 .stack b{display:block;font:700 1.15rem var(--display)}
@@ -48,6 +48,7 @@ header.nav nav a:hover{color:var(--ink);text-decoration:underline}
 .stack div:nth-child(3){border-top:8px solid var(--ai)}
 .stack div:nth-child(4){border-top:8px solid var(--sec)}
 .stack div:nth-child(5){border-top:8px solid var(--game)}
+.stack div:nth-child(6){border-top:8px solid #0A66C2}
 .cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:6px;font-weight:500;text-decoration:none;border:2px solid var(--ink);transition:transform .15s,box-shadow .15s}
 .btn.primary{background:var(--ink);color:var(--bg)}
@@ -104,6 +105,21 @@ footer a.big{font:700 clamp(1.4rem,4vw,2.2rem) var(--display);color:var(--ink);t
 footer a.big:hover{text-decoration:underline}
 footer p{color:var(--muted);margin:.5rem 0}
 
+/* Floating AI Chat Widget */
+.agent-fab{position:fixed;bottom:24px;right:24px;background:#0ea5e9;color:#04101e;border:none;border-radius:999px;padding:12px 20px;font-family:var(--mono);font-size:.9rem;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(14,165,233,0.35);cursor:pointer;z-index:999;transition:transform .2s,box-shadow .2s}
+.agent-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(14,165,233,0.5)}
+.agent-drawer{position:fixed;bottom:80px;right:24px;width:380px;max-width:calc(100vw - 32px);height:500px;background:var(--surface);border:2px solid var(--ink);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,0.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transition:all .25s ease}
+.agent-drawer[hidden]{display:none}
+.drawer-head{padding:12px 16px;background:var(--ink);color:var(--bg);display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-weight:700}
+.drawer-head button{background:none;border:none;color:var(--bg);cursor:pointer;font-size:1.2rem;line-height:1}
+.drawer-body{flex:1;padding:12px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;font-size:.88rem}
+.drawer-msg{padding:8px 12px;border-radius:8px;line-height:1.45}
+.drawer-msg.u{background:#0ea5e9;color:#04101e;align-self:flex-end;max-width:85%;font-weight:500}
+.drawer-msg.a{background:var(--bg);border:1px solid var(--line);align-self:flex-start;max-width:90%}
+.drawer-foot{padding:10px;border-top:1px solid var(--line);display:flex;gap:6px}
+.drawer-foot input{flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:.88rem;outline:none}
+.drawer-foot button{padding:8px 14px;background:var(--ink);color:var(--bg);border:none;border-radius:6px;font-weight:600;cursor:pointer}
+
 @media(max-width:768px){
   .about{grid-template-columns:1fr}
   .stack{grid-template-columns:1fr}
@@ -129,11 +145,12 @@ footer p{color:var(--muted);margin:.5rem 0}
 <main>
 <section class="hero">
   <h1>Building software that learns, adapts, and holds up under attack.</h1>
-  <p class="lead">Software Engineer, Adversarial ML Researcher, and Defensive Security Builder. I engineer resilient backend APIs, client-side zero-knowledge applications, ML threat detectors, and interactive cybersecurity simulations.</p>
+  <p class="lead">Software Engineer, Adversarial ML Researcher, and Defensive Security Builder. I engineer resilient backend APIs, client-side zero-knowledge applications, ML threat detectors, autonomous AI agents, and interactive cybersecurity simulations.</p>
   <div class="stack">
     <div><b>Backend & DevSecOps</b><span>Python &bull; Flask &bull; STRIDE &bull; CI/CD</span></div>
     <div><b>Client App Dev</b><span>Zero-Knowledge &bull; Web Crypto</span></div>
     <div><b>Applied AI & ML</b><span>PyTorch &bull; scikit-learn &bull; NLP</span></div>
+    <div><b>Autonomous AI Agents</b><span>ReAct &bull; Tool Calling &bull; LinkedIn</span></div>
     <div><b>Threat Hunting</b><span>MITRE ATT&CK &bull; Linux Forensics</span></div>
     <div><b>Game Simulation</b><span>HTML5 Canvas &bull; Web Audio API</span></div>
   </div>
@@ -141,6 +158,7 @@ footer p{color:var(--muted);margin:.5rem 0}
     <a class="btn primary" href="#projects">Explore Projects &rarr;</a>
     <a class="btn" href="ResumeOct.PDF.pdf" download="Ryleen_Ariyakutty_Resume.pdf">Download Resume (PDF)</a>
     <a class="btn" href="https://github.com/ariya-boop" target="_blank" rel="noopener">GitHub Profile</a>
+    <a class="btn" href="https://www.linkedin.com/in/ryleen-ariyakutty" target="_blank" rel="noopener" style="background:#0a66c2;color:#fff;border-color:#0a66c2">LinkedIn Profile ↗</a>
   </div>
 </section>
 
@@ -152,7 +170,7 @@ footer p{color:var(--muted);margin:.5rem 0}
       <p>My work spans full-stack secure engineering: from client-side Web Crypto API implementations to containerized backend APIs with query-level IDOR validation, automated CI/CD static security scanning, and empirical adversarial robustness benchmarking.</p>
     </div>
     <div>
-      <p><strong>Areas of focus:</strong> Adversarial machine learning (PGD/FGSM evasion attacks, gradient masking), defensive log analysis (MITRE ATT&CK), zero-knowledge cryptography, and secure API design (IDOR prevention, scrypt authentication, audit logging).</p>
+      <p><strong>Areas of focus:</strong> Adversarial machine learning (PGD/FGSM evasion attacks, gradient masking), autonomous AI agents (ReAct tool execution), defensive log analysis (MITRE ATT&CK), zero-knowledge cryptography, and secure API design (IDOR prevention, scrypt authentication, audit logging).</p>
       <p><strong>Open to:</strong> Software Engineering, Full-Stack App Development, AI/ML Engineering, and Security-minded Backend roles.</p>
     </div>
   </div>
@@ -173,7 +191,7 @@ footer p{color:var(--muted);margin:.5rem 0}
 
 <section id="ecosystem">
   <h2>Unified Security & Engineering Architecture</h2>
-  <p style="color:var(--muted);max-width:44rem;margin-bottom:1.5rem">Every project in this portfolio forms part of a cohesive enterprise defense ecosystem — connecting client zero-knowledge cryptography, hardened backend services, automated AI detectors, forensic log analyzers, and gamified incident simulation.</p>
+  <p style="color:var(--muted);max-width:44rem;margin-bottom:1.5rem">Every project in this portfolio forms part of a cohesive enterprise defense ecosystem — connecting client zero-knowledge cryptography, hardened backend services, automated AI detectors, forensic log analyzers, autonomous networking agents, and gamified incident simulation.</p>
   
   <div class="arch-diagram">
     <div class="arch-grid">
@@ -196,6 +214,10 @@ footer p{color:var(--muted);margin:.5rem 0}
       <div class="arch-box" style="border-top: 4px solid var(--ai)">
         <h4>⚔️ AI Hardening: Adversarial ML Lab</h4>
         <p>Evaluates neural network blindspots under FGSM and 7-step PGD attacks, exposing gradient masking and establishing provable defenses.</p>
+      </div>
+      <div class="arch-box" style="border-top: 4px solid #0A66C2">
+        <h4>💼 Networking: Ariya AI Career Agent</h4>
+        <p>Autonomous ReAct agent linking research to LinkedIn: synthesizes project metrics, crafts &le;300-char connection notes, and generates one-click LinkedIn post shares.</p>
       </div>
       <div class="arch-box" style="border-top: 4px solid var(--game)">
         <h4>🎮 Simulation: CyberDefend Arcade</h4>
@@ -229,9 +251,10 @@ footer p{color:var(--muted);margin:.5rem 0}
       </ul>
     </div>
     <div style="--c:var(--ai)">
-      <h3>AI & Machine Learning</h3>
+      <h3>AI, ML & Autonomous Agents</h3>
       <ul>
         <li>PyTorch, scikit-learn, torchvision</li>
+        <li>Autonomous ReAct Tool-Calling Loops</li>
         <li>NLP (TF-IDF, Tokenization, N-grams)</li>
         <li>Adversarial Robustness (FGSM, PGD)</li>
         <li>Feature Engineering & Pipelines</li>
@@ -275,8 +298,35 @@ footer p{color:var(--muted);margin:.5rem 0}
 <footer id="contact">
   <p>Interested in collaborating or discussing software, AI, or cybersecurity opportunities?</p>
   <a class="big" href="mailto:ariyakuttyryleen@gmail.com">ariyakuttyryleen@gmail.com</a>
-  <p>&copy; <span id="yr"></span> Ryleen Ariyakutty &bull; Hosted on GitHub Pages &bull; <a href="https://github.com/ariya-boop" target="_blank" rel="noopener">github.com/ariya-boop</a></p>
+  <p>&copy; <span id="yr"></span> Ryleen Ariyakutty &bull; Hosted on GitHub Pages &bull; <a href="https://github.com/ariya-boop" target="_blank" rel="noopener">github.com/ariya-boop</a> &bull; <a href="https://www.linkedin.com/in/ryleen-ariyakutty" target="_blank" rel="noopener">LinkedIn</a></p>
 </footer>
+</div>
+
+<!-- Floating AI Agent Widget -->
+<button class="agent-fab" id="fabBtn" aria-label="Open AI Career Agent">
+  <span>💬</span> Chat with Ariya AI
+</button>
+
+<div class="agent-drawer" id="agentDrawer" hidden>
+  <div class="drawer-head">
+    <span>🤖 Ariya Career Agent</span>
+    <button id="closeDrawer" aria-label="Close">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawerMsgs">
+    <div class="drawer-msg a">
+      👋 Hi! I am Ryleen's AI Career Agent, directly linked to LinkedIn.<br><br>
+      Ask me about projects, credentials, or tap below to connect!
+    </div>
+  </div>
+  <div style="padding:6px 10px;background:rgba(0,0,0,0.05);display:flex;gap:6px;overflow-x:auto;">
+    <button class="chip" style="font-size:0.75rem;padding:4px 8px;" onclick="drawerAsk('Give me Ryleen\'s LinkedIn link')">🔗 LinkedIn</button>
+    <button class="chip" style="font-size:0.75rem;padding:4px 8px;" onclick="drawerAsk('Write a LinkedIn connection note for an AI Manager')">🤝 Note (&le;300c)</button>
+    <button class="chip" style="font-size:0.75rem;padding:4px 8px;" onclick="drawerAsk('Summarize Ryleen\'s top projects')">📊 Projects</button>
+  </div>
+  <form class="drawer-foot" id="drawerForm">
+    <input type="text" id="drawerInput" placeholder="Ask question..." autocomplete="off">
+    <button type="submit">Send</button>
+  </form>
 </div>
 
 <script>
@@ -308,6 +358,20 @@ const projects = [
     tags: ["JavaScript", "Web Crypto API", "AES-256-GCM", "Zero-Knowledge", "App Dev"],
     code: "https://github.com/ariya-boop/secure-notes-client",
     demo: "./secure-notes-client/"
+  },
+  {
+    type: "ai",
+    title: "Ariya AI Agent: LinkedIn & Career Intelligence",
+    desc: "Autonomous tool-calling AI agent that formulates targeted (<= 300 char) LinkedIn connection notes, generates technical thought-leadership posts with one-click LinkedIn share intents, and answers recruiter inquiries with verified benchmark data.",
+    metrics: [
+      "LinkedIn Deep Linking: Builds one-click LinkedIn share intents and direct connection URLs",
+      "300-Char Connection Engine: Automatically writes high-conversion connection requests within LinkedIn limits",
+      "Autonomous ReAct Reasoning: Observe-Reason-Act loop with local fallback and zero required external API keys",
+      "Comprehensive Testing: 9/9 passing pytest cases covering prompt safety, API routing, and token boundaries"
+    ],
+    tags: ["Python", "AI Agent", "ReAct", "LinkedIn API", "Flask", "pytest"],
+    code: "https://github.com/ariya-boop/linkedin-ai-agent",
+    demo: "./linkedin-ai-agent/"
   },
   {
     type: "sec",
@@ -358,7 +422,7 @@ const projects = [
     metrics: [
       "Custom Physics Loop: requestAnimationFrame state machine with delta-time motion and collision math",
       "Threat Simulation: Simulates Port Scanners, Brute-Force Botnets, Phishing Lures, and Adversarial Exploits",
-      "Procedural Audio: 100% synthesized audio effects using native Web Audio API oscillators",
+      "Procedural Audio: 100% procedural synthesized audio effects using native Web Audio API oscillators",
       "High Performance: Zero external libraries, smooth 60 FPS in any modern desktop or mobile browser"
     ],
     tags: ["HTML5 Canvas", "JavaScript", "Web Audio API", "Game Dev", "Cybersecurity"],
@@ -417,6 +481,57 @@ document.querySelectorAll(".filters button").forEach(b => b.addEventListener("cl
 }));
 
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+// Drawer & Chat logic
+const fabBtn = document.getElementById("fabBtn");
+const drawer = document.getElementById("agentDrawer");
+const closeDrawer = document.getElementById("closeDrawer");
+const drawerMsgs = document.getElementById("drawerMsgs");
+const drawerForm = document.getElementById("drawerForm");
+const drawerInput = document.getElementById("drawerInput");
+const LINKEDIN_URL = "https://www.linkedin.com/in/ryleen-ariyakutty";
+
+fabBtn.onclick = () => drawer.hidden = false;
+closeDrawer.onclick = () => drawer.hidden = true;
+
+function drawerAppend(text, isUser) {
+  const div = document.createElement("div");
+  div.className = isUser ? "drawer-msg u" : "drawer-msg a";
+  div.innerHTML = text
+    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/```([\s\S]*?)```/g, '<code style="display:block;white-space:pre-wrap;margin:4px 0;">$1</code>')
+    .replace(/\n/g, '<br>');
+  drawerMsgs.appendChild(div);
+  drawerMsgs.scrollTop = drawerMsgs.scrollHeight;
+}
+
+function drawerReason(q) {
+  const ql = q.toLowerCase();
+  if (ql.includes("linkedin") || ql.includes("connect") || ql.includes("reach") || ql.includes("profile")) {
+    return `You can connect directly with Ryleen Ariyakutty on LinkedIn:\n\n👉 **[LinkedIn Profile: Ryleen Ariyakutty](${LINKEDIN_URL})**\n\nEmail: [ariyakuttyryleen@gmail.com](mailto:ariyakuttyryleen@gmail.com)\nGitHub: [github.com/ariya-boop](https://github.com/ariya-boop)`;
+  }
+  if (ql.includes("outreach") || ql.includes("note") || ql.includes("inmail") || ql.includes("message")) {
+    const note = "Hi there, I'm Ryleen, an MS AI Eng student building robust ML systems. Admiring your engineering work. Recently published an adversarial ML benchmark exposing gradient masking in CNNs. Would love to connect and follow your work!";
+    return `### 🤝 Tailored LinkedIn Connection Note (<=300 chars):\n\`\`\`${note}\`\`\`\n👉 **[Connect with Ryleen on LinkedIn](${LINKEDIN_URL})**`;
+  }
+  return `### 🤖 Ariya AI Knowledge:\n**Ryleen Ariyakutty** — Software Engineer & Adversarial ML Researcher.\n• MS in AI Engineering (WGU, Expected 2027)\n• BS in Software Engineering (WGU, 2026)\n• Certificate in Cybersecurity Architecture & Operations (TMU, 2026)\n\nFeatured Projects:\n- Adversarial ML Lab (PyTorch, PGD, Gradient Masking)\n- CipherVault (Client Zero-Knowledge Web Crypto)\n- Secure Notes API (Flask, IDOR Defense, 0 SAST Flaws)\n- Phishing Detector (98.93% Accuracy, <0.2ms latency)\n\n👉 **[Connect on LinkedIn](${LINKEDIN_URL})**`;
+}
+
+function drawerAsk(query) {
+  drawerAppend(query, true);
+  setTimeout(() => {
+    drawerAppend(drawerReason(query), false);
+  }, 200);
+}
+
+drawerForm.onsubmit = (e) => {
+  e.preventDefault();
+  const v = drawerInput.value.trim();
+  if (!v) return;
+  drawerInput.value = "";
+  drawerAsk(v);
+};
 </script>
 </body>
 </html>
